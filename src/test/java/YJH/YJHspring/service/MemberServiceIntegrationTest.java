@@ -2,17 +2,19 @@ package YJH.YJHspring.service;
 
 import YJH.YJHspring.domain.Member;
 import YJH.YJHspring.repository.MemberRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 @SpringBootTest
 @Transactional
 @WebAppConfiguration
+
 class MemberServiceIntegrationTest {
     @Autowired MemberService memberService;
     @Autowired MemberRepository memberRepository;
@@ -21,7 +23,7 @@ class MemberServiceIntegrationTest {
     public void 회원가입() throws Exception {
 //Given
         Member member = new Member();
-        member.setName("hello");
+        member.setName("spring100");
 //When
         Long saveId = memberService.join(member);
 
